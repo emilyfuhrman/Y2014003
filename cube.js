@@ -167,9 +167,9 @@ function generate(){
 			if(d.speed === "slow"){
 				s = 5;
 			} else if(d.speed === "med"){
-				s = 40;
+				s = 35;
 			} else if(d.speed === "fast"){
-				s = 100;
+				s = 125;
 			} else {
 				s = 0;
 			}
