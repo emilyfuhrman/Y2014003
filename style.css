@@ -20,8 +20,8 @@ body {
 
 #ui .label {
 	position:fixed;
-	width:300px;
-	height:300px;
+	width:200px;
+	height:200px;
 	left:2%;
 	font-size:72px;
 	font-style:italic;
@@ -33,11 +33,11 @@ body {
 	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 }
 #ui .label#left {
-	bottom:22%;
+	bottom:166px;
 	text-align:left;
 }
 #ui .label#right {
-	top:22%;
+	top:166px;
 	text-align:right;
 }
 
@@ -47,10 +47,10 @@ body {
 	font-size:86px;
 }
 #ui .arr.left {
-	top:55px;
+	bottom:55px;
 }
 #ui .arr.right {
-	bottom:55px;
+	top:55px;
 }
 
 canvas {
