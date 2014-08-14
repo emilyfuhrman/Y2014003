@@ -22,8 +22,8 @@ body {
 	position:fixed;
 	width:200px;
 	height:200px;
-	left:2.25%;
-	font-size:58px;
+	left:2%;
+	font-size:72px;
 	font-style:italic;
 	/*text-align:center;*/
 	-webkit-transform: rotate(-90deg);
@@ -33,15 +33,15 @@ body {
 	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 }
 #ui .label#left {
-	bottom:240px;
+	bottom:160px;
 	text-align:left;
 }
 #ui .label#right {
-	top:240px;
+	top:160px;
 	text-align:right;
 }
 
-#ui .arr {
+/*#ui .arr {
 	position:fixed;
 	left:3%;
 	font-size:86px;
@@ -51,7 +51,7 @@ body {
 }
 #ui .arr.right {
 	top:131px;
-}
+}*/
 
 canvas {
 	background:transparent;
