@@ -1,5 +1,5 @@
 body {
-	background:#fffdfd;
+	background:#fffffd;
   	width:100%;
   	height:100%;
 	color:#1c1d22;
@@ -10,7 +10,7 @@ body {
 
 #ui #divider {
 	position:fixed;
-	background:#1c1d22;
+	background:#18181b;
 	width:100%;
 	height:8px;
 	top:50%;
@@ -20,26 +20,37 @@ body {
 
 #ui .label {
 	position:fixed;
-	width:200px;
-	height:200px;
+	width:300px;
+	height:300px;
 	left:2%;
 	font-size:72px;
 	font-style:italic;
+	/*text-align:center;*/
 	-webkit-transform: rotate(-90deg);
 	-moz-transform: rotate(-90deg);
 	-ms-transform: rotate(-90deg);
 	-o-transform: rotate(-90deg);
 	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 }
-
-#ui #left {
-	bottom:21%;
+#ui .label#left {
+	bottom:22%;
 	text-align:left;
 }
-
-#ui #right {
-	top:21%;
+#ui .label#right {
+	top:22%;
 	text-align:right;
+}
+
+#ui .arr {
+	position:fixed;
+	left:3%;
+	font-size:86px;
+}
+#ui .arr.left {
+	top:55px;
+}
+#ui .arr.right {
+	bottom:55px;
 }
 
 canvas {

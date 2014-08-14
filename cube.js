@@ -1,11 +1,12 @@
 function generate(){
 
 	//TODO: figure out dodecahedron
+	//TODO: font resizing
 
 	return {
 
 		lastTime:0,
-		cBlack:'#1c1d22',
+		cBlack:'#18181b',
 		calc:function(){
 			this.SCREEN_WIDTH = window.innerWidth;
 			this.SCREEN_HEIGHT = window.innerHeight;
