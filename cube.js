@@ -56,8 +56,8 @@ function generate(){
 
 			//top and bottom positions for boat directions
 			//just work off the width for resizing purposes
-			this.posL = this.SCREEN_WIDTH*-0.11;
-			this.posR = this.SCREEN_WIDTH*0.11;
+			this.posL = this.SCREEN_WIDTH*-0.12;
+			this.posR = this.SCREEN_WIDTH*0.12;
 
 			this.shapes  = [];
 			this.shapesL = [];
