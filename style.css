@@ -33,11 +33,11 @@ body {
 	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 }
 #ui .label#left {
-	bottom:166px;
+	bottom:240px;
 	text-align:left;
 }
 #ui .label#right {
-	top:166px;
+	top:240px;
 	text-align:right;
 }
 
@@ -47,10 +47,10 @@ body {
 	font-size:86px;
 }
 #ui .arr.left {
-	bottom:55px;
+	bottom:131px;
 }
 #ui .arr.right {
-	top:55px;
+	top:131px;
 }
 
 canvas {
