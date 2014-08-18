@@ -24,9 +24,11 @@ body {
 	width:200px;
 	height:200px;
 	left:2%;
+	color:#fff;
 	font-family:"Helvetica","Arial",sans-serif;
-	font-size:72px;
+	/*font-size:72px;*/
 	font-weight:bold;
+	text-align:center;
 	text-transform:uppercase;
 	-webkit-transform: rotate(-90deg);
 	-moz-transform: rotate(-90deg);
@@ -35,12 +37,10 @@ body {
 	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 }
 #ui .label#left {
-	bottom:160px;
-	text-align:left;
+	bottom:100px;
 }
 #ui .label#right {
-	top:160px;
-	text-align:right;
+	top:100px;
 }
 
 /*#ui .arr {

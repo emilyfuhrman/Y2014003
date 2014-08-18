@@ -45,10 +45,23 @@ function generate(){
 				"top": window.innerHeight/2 -(divider.offsetHeight/2) +'px',
 				"left": marginL -shapeSize/2 +'px'
 			});
-			//rotate and align labels
-			/*$('.label').css({
-				"left": marginL/4 +'px'
-			});*/
+
+			//as with shapes, resize based on width
+			var fontSize = shapeSize,
+				//labelBuffer = window.innerWidth*.075;
+				labelBuffer = 0;//window.innerWidth*0.12;
+
+			//align labels
+			$('.label').css({
+				"font-size":fontSize +'px',
+				"top":function(){
+					return this.id === "right" ? window.innerHeight -window.innerHeight/2 -labelBuffer +'px' : null;
+				},
+				"bottom":function(){
+					return this.id === "left" ? window.innerHeight/2 -labelBuffer +'px' : null;
+				},
+				"color":'#1c1d22'
+			});
 		},
 		draw:function(){
 			var self = this;
