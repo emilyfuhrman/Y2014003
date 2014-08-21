@@ -1,7 +1,6 @@
 function generate(){
 
-	//TODO: figure out dodecahedron
-	//TODO: font resizing
+	//TODO: legend
 
 	return {
 
@@ -13,7 +12,7 @@ function generate(){
 		},
 		setup:function(callback){
 			var c = document.getElementById('e');
-			this.renderer = new THREE.WebGLRenderer({ canvas: c });
+			this.renderer = new THREE.CanvasRenderer({ canvas: c });
 			this.renderer.setSize(this.SCREEN_WIDTH,this.SCREEN_HEIGHT);
 			document.getElementById('container').appendChild(this.renderer.domElement);
 
@@ -47,8 +46,8 @@ function generate(){
 			});
 
 			//as with shapes, resize based on width
-			var fontSize = shapeSize*0.9,
-				labelBuffer = window.innerWidth*0.13;
+			var fontSize = shapeSize*0.95,
+				labelBuffer = window.innerWidth*0.14;
 
 			//align labels
 			$('.label').css({
@@ -149,9 +148,17 @@ function generate(){
 			var self = this;
 			var	shape,
 				shapeMesh = new THREE.MeshBasicMaterial({color:self.cBlack, wireframe:true, wireframeLinewidth:3});
+
+			//define line material
+			var material = new THREE.LineBasicMaterial({
+				color:self.cBlack,
+				linewidth:3
+			});
 			
-			shape = new THREE.Mesh(self.mapShape(d), shapeMesh);
-			shape.overdraw = true;
+			//shape = new THREE.Mesh(self.mapShape(d), shapeMesh);
+			//shape.overdraw = true;
+
+			shape = new THREE.Line(self.mapShape(d), material, THREE.LinePieces);
 
 			shape.data = d;
 			shape.speed = self.mapSpeed(d);
@@ -159,23 +166,43 @@ function generate(){
 			return shape;
 		},
 		mapShape:function(data){
-			var s,
-				cubesz = this.shapeSize,
-				polysz = this.shapeSize*0.8;
+			var self = this,
+				s,
+				poly,
+				scale
+				cubesz = self.shapeSize*0.65,
+				polysz = self.shapeSize*0.5;
+
+			s = new THREE.Geometry();
 			if(data.size === "XS"){
-				s = new THREE.TetrahedronGeometry(polysz);
+				poly = POLYHEDRA.Tetrahedron;
+				scale = polysz;
 			} else if(data.size === "S"){
-				s = new THREE.CubeGeometry(cubesz,cubesz,cubesz);
+				poly = POLYHEDRA.Cube;
+				scale = cubesz;
 			} else if(data.size === "M"){
-				s = new THREE.OctahedronGeometry(polysz);
+				poly = POLYHEDRA.Octahedron;
+				scale = polysz;
 			} else if(data.size === "L"){
-				s = new THREE.CubeGeometry(cubesz,cubesz,cubesz);
-				//s = new THREE.DodecahedronGeometry(sz);
+				poly = POLYHEDRA.Dodecahedron;
+				scale = cubesz;
 			} else if(data.size === "XL"){
-				s = new THREE.IcosahedronGeometry(polysz);
+				poly = POLYHEDRA.Icosahedron;
+				scale = polysz;
 			} else{
-				s = new THREE.CubeGeometry(cubesz,cubesz,cubesz);
+				poly = POLYHEDRA.Cube;
+				scale = cubesz;
 			}
+			s.vertices = []; 
+			poly.edge.forEach(function(d,i){
+				d.forEach(function(_d){	
+					var v = new THREE.Vector3();
+					v.x = poly.vertex[_d][0]*scale;
+					v.y = poly.vertex[_d][1]*scale;
+					v.z = poly.vertex[_d][2]*scale;
+					s.vertices.push(v);
+				});
+			});
 			return s;
 		},
 		mapSpeed:function(d){
