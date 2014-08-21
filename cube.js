@@ -47,9 +47,8 @@ function generate(){
 			});
 
 			//as with shapes, resize based on width
-			var fontSize = shapeSize,
-				//labelBuffer = window.innerWidth*.075;
-				labelBuffer = 0;//window.innerWidth*0.12;
+			var fontSize = shapeSize*0.9,
+				labelBuffer = window.innerWidth*0.13;
 
 			//align labels
 			$('.label').css({
@@ -59,6 +58,9 @@ function generate(){
 				},
 				"bottom":function(){
 					return this.id === "left" ? window.innerHeight/2 -labelBuffer +'px' : null;
+				},
+				"left":function(){
+					return (100 -fontSize)*-1 +'px';
 				},
 				"color":'#1c1d22'
 			});
