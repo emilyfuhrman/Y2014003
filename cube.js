@@ -1,6 +1,7 @@
 function generate(){
 
 	//TODO: legend
+	//TODO: goddamn label positioning
 
 	return {
 
@@ -46,20 +47,18 @@ function generate(){
 			});
 
 			//as with shapes, resize based on width
-			var fontSize = shapeSize*0.95,
-				labelBuffer = window.innerWidth*0.14;
+			var fontSize = shapeSize*.99,
+				labelBuffer = window.innerWidth*0.12;
 
 			//align labels
 			$('.label').css({
 				"font-size":fontSize +'px',
-				"top":function(){
-					return this.id === "right" ? window.innerHeight -window.innerHeight/2 -labelBuffer +'px' : null;
-				},
-				"bottom":function(){
-					return this.id === "left" ? window.innerHeight/2 -labelBuffer +'px' : null;
-				},
-				"left":function(){
-					return (100 -fontSize)*-1 +'px';
+				"transform":function(){
+					var start = window.innerHeight*-0.5,
+						space = this.clientWidth/this.id.length*0.5,
+						x = this.id === "right" ? start +labelBuffer -space : start -labelBuffer -space,
+						y = fontSize*1.5;
+					return "rotate(-90deg)translate(" + x + "px," + y + "px)";
 				},
 				"color":'#1c1d22'
 			});
@@ -152,7 +151,7 @@ function generate(){
 			//define line material
 			var material = new THREE.LineBasicMaterial({
 				color:self.cBlack,
-				linewidth:3
+				linewidth:4
 			});
 			
 			//shape = new THREE.Mesh(self.mapShape(d), shapeMesh);

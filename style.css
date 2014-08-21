@@ -21,36 +21,28 @@ body {
 
 #ui .label {
 	position:fixed;
-	width:200px;
+	width:auto;
+	height:auto;
 	color:#fff;
 	font-family:"Helvetica","Arial",sans-serif;
 	font-weight:bold;
-	text-align:center;
+	text-align:left;
 	text-transform:uppercase;
 	-webkit-transform: rotate(-90deg);
 	-moz-transform: rotate(-90deg);
 	-ms-transform: rotate(-90deg);
 	-o-transform: rotate(-90deg);
 	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    -webkit-transform-origin: bottom left;   
+    -moz-transform-origin: bottom left;   
+    -o-transform-origin: bottom left;   
+    -ms-transform-origin: bottom left;   
+    transform-origin: bottom left;   
 }
 #ui .label#left {
-	bottom:100px;
 }
 #ui .label#right {
-	top:100px;
 }
-
-/*#ui .arr {
-	position:fixed;
-	left:3%;
-	font-size:86px;
-}
-#ui .arr.left {
-	bottom:131px;
-}
-#ui .arr.right {
-	top:131px;
-}*/
 
 canvas {
 	background:transparent;
