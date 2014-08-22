@@ -6,7 +6,6 @@ function generate(){
 
 		lastTime:0,
 		cBlack:'#18181b',
-		lift:-window.innerHeight*0.1,
 		calc:function(){
 			this.SCREEN_WIDTH = window.innerWidth;
 			this.SCREEN_HEIGHT = window.innerHeight;
@@ -40,8 +39,6 @@ function generate(){
 				marginL   = (window.innerWidth*0.325)/2,
 				shapeSize = (window.innerWidth*0.6)/this.data.length;
 
-			this.lift = -window.innerHeight*0.05;
-
 			//as with shapes, resize based on width
 			var fontSize = shapeSize*.9,
 				labelBuffer = window.innerWidth*0.08;
@@ -52,7 +49,7 @@ function generate(){
 				"transform":function(){
 					var start = window.innerHeight*-0.5,
 						space = this.clientWidth/this.id.length*0.5,
-						x = this.id === "right" ? start +labelBuffer -space -(self.lift) : start -labelBuffer -space -(self.lift),
+						x = this.id === "right" ? start +labelBuffer -space : start -labelBuffer -space,
 						y = fontSize*1.5;
 					return "rotate(-90deg)translate(" + x + "px," + y + "px)";
 				},
@@ -65,8 +62,8 @@ function generate(){
 
 			//top and bottom positions for boat directions
 			//just work off the width for resizing purposes
-			this.posL = this.SCREEN_WIDTH*-0.10 -this.lift;
-			this.posR = this.SCREEN_WIDTH*0.10 -this.lift;
+			this.posL = this.SCREEN_WIDTH*-0.10;
+			this.posR = this.SCREEN_WIDTH*0.10;
 
 			this.shapes  = [];
 			this.shapesL = [];
