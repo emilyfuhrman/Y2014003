@@ -40,7 +40,7 @@ function generate(){
 				shapeSize = (window.innerWidth*0.6)/this.data.length;
 
 			//as with shapes, resize based on width
-			var fontSize = shapeSize*.9,
+			var fontSize = shapeSize*.8,
 				labelBuffer = window.innerWidth*0.08;
 
 			//align labels
@@ -52,8 +52,7 @@ function generate(){
 						x = this.id === "right" ? start +labelBuffer -space : start -labelBuffer -space,
 						y = fontSize*1.5;
 					return "rotate(-90deg)translate(" + x + "px," + y + "px)";
-				},
-				"color":'#1c1d22'
+				}
 			});
 		},
 		draw:function(){
@@ -144,7 +143,7 @@ function generate(){
 			//define line material
 			var material = new THREE.LineBasicMaterial({
 				color:self.cBlack,
-				linewidth:4
+				linewidth:3
 			});
 			
 			//shape = new THREE.Mesh(self.mapShape(d), shapeMesh);
